@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --button-color: #f25922;
+  --button-hover-color: #491604;
+  --button-text-color: #fff;
+  --button-text-hover-color: #f25922;
+
+  --color-background: #3a2a2f;
+  --color-stock-1: #c00000;
+  --color-stock-2: #3c9342;
+  --color-text: #3a2a2f;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+section video,
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 32%;
+  height: 40%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: #ffffff;
+  z-index: 2;
+}
+
+.overlay h2 {
+  margin-bottom: 10px;
+  text-transform: none;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.overlay p {
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 28px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.overlay .shop-now {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #f25922;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+.overlay .shop-now:hover {
+  background-color: var(--button-hover-color);
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    width: 80%;
+
+    .overlay h2 {
+      font-size: 1.5rem;
+    }
+
+    .overlay p {
+      font-size: 0.9rem;
+    }
+
+    .overlay .shop-now {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    width: 90%;
+  }
+
+  .overlay h2 {
+    font-size: 42px;
+    word-break: break-word;
+  }
+
+  .overlay p {
+    font-size: 17px !important;
+  }
+
+  .overlay .shop-now {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

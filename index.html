@@ -9,18 +9,104 @@
 </head>
 
 <body>
-    <section>
+    <section id="section-1">
         <video id="mediaPlayer" autoplay muted loop playsinline>
             <source src="./assets/video.mp4" type="video/mp4">
         </video>
         <img id="mediaImage" style="display: none;" alt="Media">
 
         <div class="overlay">
-            <h2>Upgrade your living room</h2>
-            <p>Revamp your living space with our exclusive sale! From plush sofas to elegant coffee tables, discover
+            <h2 id="overlayTitle">Upgrade your living room</h2>
+            <p id="overlayParagraph">Revamp your living space with our exclusive sale! From plush sofas to elegant
+                coffee tables, discover
                 unbeatable deals on living room furniture.</p>
-            <div class="shop-now">Shop now</div>
+            <div class="btn-section-1">
+
+                <a href="">Shop now</a>
+            </div>
         </div>
+
+        <div class="slide-pagination">
+
+            <button class="btn btn-active">
+                1
+            </button>
+            <button class="btn ">
+                2
+            </button>
+        </div>
+
+    </section>
+
+    <section id="section-2">
+        <div class="container">
+            <div class="section-2-item">
+                <img src="./assets/section-2-1.jpg" alt="">
+                <div class="section-2-item-overlay">
+                    <h2>Dining room</h2>
+                    <p>
+                        From elegant dining chairs to stylish tables, discover unbeatable deals on everything you need
+                    </p>
+                    <div class="btn-section-2">
+                        <a href="">Shop now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-2-item">
+                <img src="./assets/section-2-2.jpg" alt="">
+                <div class="section-2-item-overlay">
+                    <h2>Bedroom</h2>
+                    <p>
+                        From modern platform beds to elegant dressers, discover unbeatable deals on everything you need
+                    </p>
+                    <div class="btn-section-2">
+                        <a href="">Shop now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-2-item">
+                <img src="./assets/section-2-3.jpg" alt="">
+                <div class="section-2-item-overlay">
+                    <h2>Living room</h2>
+                    <p>
+                        Limited time only—shop now and create your perfect gathering spot!
+                    </p>
+                    <div class="btn-section-2">
+                        <a href="">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="section-3">
+
+        <!-- <h2>Featured Collection </h2> -->
+        <div class="container">
+
+
+
+        </div>
+
+        <div class="prev">
+            <svg xmlns="http: //www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </div>
+
+        <button class="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+
+
 
     </section>
     <script src="script.js"></script>

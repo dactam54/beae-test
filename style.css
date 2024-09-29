@@ -229,7 +229,7 @@ img {
   margin: 20px auto;
   overflow-x: scroll;
   white-space: nowrap;
-  border: 1px solid black;
+
   position: relative;
 }
 #section-3 .section-3-title {
@@ -384,7 +384,6 @@ button:disabled {
   margin: 20px auto;
   overflow-x: scroll;
   white-space: nowrap;
-  border: 1px solid black;
   position: relative;
 }
 #section-4 .section-4-title {
@@ -458,30 +457,23 @@ button:disabled {
 }
 
 #section-5 .container .section-5-item {
-  /* height: 250px; */
+  display: flex;
   height: fit-content;
   flex: 0 0 16.66%;
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
-  padding: 20px;
-  border:1px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  justify-items: center;
-  
 }
 
 #section-5 .container .section-5-item img {
-  width: 60%;
+  width: 50%;
   /* object-fit: cover; */
   object-fit: contain;
   display: flex;
   position: relative;
-  aspect-ratio: 3/2;
- 
-
-
+  aspect-ratio: 16/9;
 }
 
 #section-5 .container::-webkit-scrollbar {
@@ -537,7 +529,7 @@ button:disabled {
     overflow-y: hidden;
     white-space: nowrap;
     padding-top: 20px;
-    border: 1px solid black;
+  
   }
 
   #section-2 .container .section-2-item {
@@ -582,6 +574,10 @@ button:disabled {
   }
 
   /* Section-4 */
+  #section-4 .section-4-title {
+    flex-direction: column;
+    align-items: center;
+  }
   #section-4 .container {
     width: 100%;
   }
@@ -592,6 +588,27 @@ button:disabled {
   }
 
   #section-4 .container .section-4-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* padding: 20px; */
+  }
+
+  /* Section-5 */
+  #section-5 .section-5-title {
+    flex-direction: column;
+    align-items: center;
+  }
+  #section-5 .container {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  #section-5 .container .section-5-item {
+    flex: 0 0 40%;
+  }
+
+  #section-4 .container .section-5-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;

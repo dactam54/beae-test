@@ -215,7 +215,7 @@ img {
   color: var(--button-text-color);
 }
 
-/* Section-3 start*/
+/*!Section-3 start*/
 #section-3 {
   display: block;
   position: relative;
@@ -225,12 +225,24 @@ img {
 
 #section-3 .container {
   display: flex;
-  /* flex-direction: row; */
   width: 80%;
-  margin: 50px auto;
+  margin: 20px auto;
   overflow-x: scroll;
-
   white-space: nowrap;
+  border: 1px solid black;
+  position: relative;
+}
+#section-3 .section-3-title {
+  display: flex;
+  width: 80%;
+  /* margin: 50px auto; */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #section-3 .container .section-3-item {
@@ -251,41 +263,77 @@ img {
   aspect-ratio: 1/1;
 }
 
+#section-3 .container .section-3-item .item-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+#section-3 .container .section-3-item .item-detail .stock {
+  display: flex;
+  flex-direction: row;
+}
+
+#section-3 .container .section-3-item .item-detail .stock div:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: red;
+}
 #section-3 .container::-webkit-scrollbar {
   display: none;
 }
 
-#section-3 .prev {
+#section-3 .prev,
+.next {
+  opacity: 0;
+  display: block;
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 38px;
+  height: 38px;
   top: 50%;
-  left: 0;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 2;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px #00000014;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-self: center;
+  border: none;
+  padding: 6px;
+  transition: opacity 0.3s ease;
 }
 
-#section-3 .prev svg {
-  color: red;
-  border: 1px solid red;
+#section-3 .prev {
+  left: 10%;
+  margin-left: 10px;
 }
 
 #section-3 .next {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 2;
+  right: 10%;
+  margin-right: 10px;
 }
 
-#section-3 .next svg {
+#section-3:hover .next {
+  opacity: 1;
+}
+
+#section-3:hover .prev {
+  opacity: 1;
+}
+
+button:disabled {
+  color: #3a2a2f;
+  cursor: default !important;
+}
+
+#section-3 .prev svg,
+.next svg {
   color: red;
-  border: 1px solid red;
+  stroke: #aaa;
+  width: 26px;
+  height: 26px;
 }
 
 .addToCart {
@@ -320,7 +368,127 @@ img {
   box-shadow: 0 4px 6px #00000014;
 }
 
-/* Section-3 end*/
+/*! Section-3 end*/
+
+/*! Section-4 start */
+#section-4 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#section-4 .container {
+  display: flex;
+  width: 80%;
+  margin: 20px auto;
+  overflow-x: scroll;
+  white-space: nowrap;
+  border: 1px solid black;
+  position: relative;
+}
+#section-4 .section-4-title {
+  display: flex;
+  width: 80%;
+  /* margin: 50px auto; */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#section-4 .container .section-4-item {
+  /* height: 250px; */
+  height: fit-content;
+  flex: 0 0 16.66%;
+  border: 1px solid #e6dde0;
+  transition: transform 0.5s ease;
+}
+
+#section-4 .container .section-4-item .item-detail {
+  display: flex;
+  justify-content: center;
+}
+
+#section-4 .container .section-4-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+
+#section-4 .container::-webkit-scrollbar {
+  display: none;
+}
+
+/*! Section-4 end */
+
+/*! Section-5 start */
+#section-5 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#section-5 .container {
+  display: flex;
+  width: 80%;
+  margin: 20px auto;
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: relative;
+}
+#section-5 .section-5-title {
+  display: flex;
+  width: 80%;
+  /* margin: 50px auto; */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#section-5 .container .section-5-item {
+  /* height: 250px; */
+  height: fit-content;
+  flex: 0 0 16.66%;
+  border: 1px solid #e6dde0;
+  transition: transform 0.5s ease;
+  padding: 20px;
+  border:1px solid black;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  
+}
+
+#section-5 .container .section-5-item img {
+  width: 60%;
+  /* object-fit: cover; */
+  object-fit: contain;
+  display: flex;
+  position: relative;
+  aspect-ratio: 3/2;
+ 
+
+
+}
+
+#section-5 .container::-webkit-scrollbar {
+  display: none;
+}
+
+/*! Section-5 end */
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -369,6 +537,7 @@ img {
     overflow-y: hidden;
     white-space: nowrap;
     padding-top: 20px;
+    border: 1px solid black;
   }
 
   #section-2 .container .section-2-item {
@@ -385,10 +554,44 @@ img {
     white-space: normal;
   }
 
-  #section-3 .container .section-3-item {
-    flex: 0 0 70%;
+  /* Section-3 */
+  #section-3 .container {
+    width: 100%;
   }
+
+  #section-3 .container .section-3-item {
+    flex: 0 0 80%;
+    margin: 10px 10px;
+  }
+
   #section-3 .container .section-3-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* padding: 20px; */
+  }
+
+  #section-3 .prev,
+  .next {
+    display: none;
+  }
+
+  #section-3 .section-3-title {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Section-4 */
+  #section-4 .container {
+    width: 100%;
+  }
+
+  #section-4 .container .section-4-item {
+    flex: 0 0 80%;
+    margin: 10px 10px;
+  }
+
+  #section-4 .container .section-4-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;

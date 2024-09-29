@@ -32,8 +32,6 @@ btnDots.forEach((btn, index) => {
 
 function updatePath() {
     const path = paths[currentPathIndex];
-
-
     if (path.endsWith('.mp4')) {
         mediaPlayer.src = path;
         mediaPlayer.style.display = 'block';
@@ -72,7 +70,7 @@ setInterval(updatePath, delayTime);
 
 //Slide + Touch Mobile
 
-const images = [
+const imagesPath = [
     './assets/section-3--1.jpg',
     './assets/section-3-0.jpg',
     './assets/section-3-1.jpg',
@@ -141,49 +139,35 @@ const textImages = [
 
 ]
 
-const btnPrev = document.getElementsByClassName('prev');
-const btnNext = document.getElementsByClassName('next');
-const container = document.querySelector('#section-3 .container');
 
+const container = document.querySelector('#section-3 .container');
+const images = container.querySelectorAll('.section-3-item');
 let currentIndex = 0;
 const itemsPerView = 6;
 const scrollStep = 2;
 
-
-function createImages(images) {
-    container.innerHTML = '';
-
-
-    images.forEach((src, index) => {
-        const div = document.createElement('div');
-        div.classList.add('section-3-item');
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Image';
-        //Cart
-        const addToCart = document.createElement('div');
-        addToCart.classList.add('addToCart');
-        addToCart.innerHTML = `<button>Quick view</button>`
-        div.appendChild(img);
-        div.appendChild(addToCart);
-        container.appendChild(div);
+function showImages(startIndex) {
+    images.forEach((item, index) => {
+        item.style.display = (index >= startIndex && index < startIndex + itemsPerView) ? 'block' : 'none';
     });
-
-
-    // const myDiv = document.createElement('div');
-    // myDiv.classList.add('section-3-item');
-    // myDiv.innerText = "Dac Tam"
-
-    // container.appendChild(myDiv);
-
-
 }
 
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
 
-function showImages(startIndex) {
-    const endIndex = startIndex + itemsPerView;
-    const visibleImages = images.slice(startIndex, endIndex);
-    createImages(visibleImages);
+function updateButtonStates() {
+    if (currentIndex === 0) {
+        prevButton.setAttribute('disabled', 'true');
+    } else {
+        prevButton.removeAttribute('disabled');
+    }
+
+    // Disable next button if we are at the last image
+    if (currentIndex >= images.length - itemsPerView) {
+        nextButton.setAttribute('disabled', 'true');
+    } else {
+        nextButton.removeAttribute('disabled');
+    }
 }
 
 document.querySelector('.next').addEventListener('click', () => {
@@ -193,6 +177,7 @@ document.querySelector('.next').addEventListener('click', () => {
         currentIndex = images.length - itemsPerView;
     }
     showImages(currentIndex);
+    updateButtonStates();
 });
 
 document.querySelector('.prev').addEventListener('click', () => {
@@ -202,32 +187,51 @@ document.querySelector('.prev').addEventListener('click', () => {
         currentIndex = 0;
     }
     showImages(currentIndex);
-});
-
-let startX = 0;
-let endX = 0;
-
-container.addEventListener('touchstart', (event) => {
-    startX = event.touches[0].clientX;
-});
-
-container.addEventListener('touchmove', (event) => {
-    endX = event.touches[0].clientX;
-});
-
-container.addEventListener('touchend', () => {
-    const deltaX = startX - endX;
-
-
-    if (deltaX > 50) {
-        document.querySelector('.next').click();
-    }
-
-    else if (deltaX < -50) {
-        document.querySelector('.prev').click();
-    }
+    updateButtonStates();
 });
 
 
+updateButtonStates();
 showImages(currentIndex);
+
+
+
+
+
+// let isDragging = false;
+// let startPosition = 0;
+// let scrollLeft = 0;
+
+// // Sự kiện cho máy tính (click và kéo)
+// container.addEventListener('mousedown', (e) => {
+//     isDragging = true;
+//     startPosition = e.pageX - container.offsetLeft;  // Lưu vị trí ban đầu của chuột
+//     scrollLeft = container.scrollLeft;               // Lưu vị trí scroll hiện tại của container
+//     container.classList.add('grabbing');             // Thêm hiệu ứng khi kéo
+// });
+
+// container.addEventListener('mouseleave', () => {
+//     isDragging = false;
+//     container.classList.remove('grabbing');          // Bỏ hiệu ứng khi ra khỏi container
+// });
+
+// container.addEventListener('mouseup', () => {
+//     isDragging = false;
+//     container.classList.remove('grabbing');          // Bỏ hiệu ứng khi thả chuột
+// });
+
+// container.addEventListener('mousemove', (e) => {
+//     if (!isDragging) return; // Chỉ thực hiện khi đang kéo
+//     e.preventDefault();      // Ngăn chặn hành vi mặc định của trình duyệt khi kéo
+//     const x = e.pageX - container.offsetLeft; // Lấy vị trí hiện tại của chuột
+//     const walk = (x - startPosition) * 1.5;   // Khoảng cách di chuyển (nhân với 1.5 để tăng tốc độ)
+//     container.scrollLeft = scrollLeft - walk; // Cập nhật vị trí scroll của container
+// });
+
+
+
+
+
+
+
 

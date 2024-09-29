@@ -202,30 +202,29 @@ showImages(currentIndex);
 // let startPosition = 0;
 // let scrollLeft = 0;
 
-// // Sự kiện cho máy tính (click và kéo)
 // container.addEventListener('mousedown', (e) => {
 //     isDragging = true;
-//     startPosition = e.pageX - container.offsetLeft;  // Lưu vị trí ban đầu của chuột
-//     scrollLeft = container.scrollLeft;               // Lưu vị trí scroll hiện tại của container
-//     container.classList.add('grabbing');             // Thêm hiệu ứng khi kéo
+//     startPosition = e.pageX - container.offsetLeft;
+//     scrollLeft = container.scrollLeft;
+//     container.classList.add('grabbing');
 // });
 
 // container.addEventListener('mouseleave', () => {
 //     isDragging = false;
-//     container.classList.remove('grabbing');          // Bỏ hiệu ứng khi ra khỏi container
+//     container.classList.remove('grabbing');
 // });
 
 // container.addEventListener('mouseup', () => {
 //     isDragging = false;
-//     container.classList.remove('grabbing');          // Bỏ hiệu ứng khi thả chuột
+//     container.classList.remove('grabbing');
 // });
 
 // container.addEventListener('mousemove', (e) => {
-//     if (!isDragging) return; // Chỉ thực hiện khi đang kéo
-//     e.preventDefault();      // Ngăn chặn hành vi mặc định của trình duyệt khi kéo
-//     const x = e.pageX - container.offsetLeft; // Lấy vị trí hiện tại của chuột
-//     const walk = (x - startPosition) * 1.5;   // Khoảng cách di chuyển (nhân với 1.5 để tăng tốc độ)
-//     container.scrollLeft = scrollLeft - walk; // Cập nhật vị trí scroll của container
+//     if (!isDragging) return;
+//     e.preventDefault();
+//     const x = e.pageX - container.offsetLeft;
+//     const walk = (x - startPosition) * 1.5;
+//     container.scrollLeft = scrollLeft - walk;
 // });
 
 

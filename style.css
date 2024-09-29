@@ -9,13 +9,14 @@
   --button-hover-color: #491604;
   --button-text-color: #fff;
   --button-text-hover-color: #f25922;
-
   --color-background: #3a2a2f;
   --color-background-overlay: rgba(0, 0, 0, 0.5);
-
   --color-stock-1: #c00000;
   --color-stock-2: #3c9342;
   --color-text: #3a2a2f;
+  --width-container: 80%;
+  --width-container-mobile: 100%;
+  --margin-mobile: 10px;
 }
 
 html {
@@ -154,7 +155,8 @@ img {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 80%;
+  /* width: 80%; */
+  width: var(--width-container);
   margin: 0 auto;
   padding-top: 50px;
 }
@@ -225,7 +227,7 @@ img {
 
 #section-3 .container {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   margin: 20px auto;
   overflow-x: scroll;
   white-space: nowrap;
@@ -234,7 +236,7 @@ img {
 }
 #section-3 .section-3-title {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   /* margin: 50px auto; */
   margin-top: 50px;
   margin-bottom: 20px;
@@ -296,10 +298,6 @@ img {
   z-index: 2;
   border-radius: 50%;
   box-shadow: 0 4px 6px #00000014;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  justify-self: center;
   border: none;
   padding: 6px;
   transition: opacity 0.3s ease;
@@ -380,7 +378,7 @@ button:disabled {
 
 #section-4 .container {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   margin: 20px auto;
   overflow-x: scroll;
   white-space: nowrap;
@@ -388,13 +386,12 @@ button:disabled {
 }
 #section-4 .section-4-title {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   /* margin: 50px auto; */
   margin-top: 50px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-
   flex-direction: row;
   justify-content: space-between;
 }
@@ -437,7 +434,7 @@ button:disabled {
 
 #section-5 .container {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   margin: 20px auto;
   overflow-x: scroll;
   white-space: nowrap;
@@ -445,7 +442,7 @@ button:disabled {
 }
 #section-5 .section-5-title {
   display: flex;
-  width: 80%;
+  width: var(--width-container);
   /* margin: 50px auto; */
   margin-top: 50px;
   margin-bottom: 20px;
@@ -524,16 +521,15 @@ button:disabled {
   #section-2 .container {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: var(--width-container-mobile);
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     padding-top: 20px;
-  
   }
 
   #section-2 .container .section-2-item {
-    width: 80%;
+    width: var(--width-container-mobile);
     height: 250px;
     margin: 10px 10px;
     flex-shrink: 0;
@@ -553,14 +549,15 @@ button:disabled {
 
   #section-3 .container .section-3-item {
     flex: 0 0 80%;
-    margin: 10px 10px;
+  }
+  #section-3 .container .section-3-item:first-child {
+    margin-left: var(--margin-mobile);
   }
 
   #section-3 .container .section-3-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* padding: 20px; */
   }
 
   #section-3 .prev,
@@ -584,14 +581,12 @@ button:disabled {
 
   #section-4 .container .section-4-item {
     flex: 0 0 80%;
-    margin: 10px 10px;
   }
 
   #section-4 .container .section-4-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* padding: 20px; */
   }
 
   /* Section-5 */
@@ -601,7 +596,7 @@ button:disabled {
   }
   #section-5 .container {
     width: 100%;
-    margin-left: 10px;
+    margin-left: var(--margin-mobile);
   }
 
   #section-5 .container .section-5-item {
@@ -612,6 +607,5 @@ button:disabled {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* padding: 20px; */
   }
 }

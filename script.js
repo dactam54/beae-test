@@ -143,31 +143,40 @@ const imageColors = [
         text: 'Natural',
         path: './assets/v1.jpg',
         price: '$299.99',
+        sale: '$399.99',
         color: '#f0cb90'
     },
     {
         text: 'Black',
         path: './assets/v2.jpg',
         price: '$279.99',
+        sale: '$399.99',
         color: '#000000'
     }
 ];
 
-function setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors) {
+function setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors, indexActive) {
     colorButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             colorButtons.forEach((btn, i) => {
                 if (i === index) {
                     btn.classList.add('active');
                     buttons[i].classList.add('active');
+
                 } else {
                     btn.classList.remove('active');
                     buttons[i].classList.remove('active');
                 }
             });
+            document.querySelector('.price').innerText = imageColors[index].price;
 
             srcImage.src = imageColors[index].path;
-            textImage.innerText = imageColors[index].text;
+            // textImage.innerText = imageColors[index].text;
+            textImage.innerHTML = `
+            <label>Color :</label>
+            <h2>${imageColors[index].text}</h2>
+            ` || ` <label>Color :</label>
+            <h2>${imageColors[indexActive].text}</h2>`
         });
     });
 }
@@ -180,7 +189,8 @@ function setImage(imageColors, elementSelectors, buttonSelectors) {
         const buttons = document.querySelectorAll(selector);
         const srcImage = document.getElementById('src-image');
         const textImage = document.getElementsByClassName('textImage')[0];
-        const optionsColor = document.querySelector('.optionsColor');
+        const optionsColor = document.querySelector('.optionsColor')
+
         optionsColor.innerHTML = imageColors.map((item) => {
             return `<div class="color" style="background-color: ${item.color} ;width: 25px; height: 25px"></div>`;
         }).join('');
@@ -188,10 +198,14 @@ function setImage(imageColors, elementSelectors, buttonSelectors) {
         const colorButtons = document.querySelectorAll(buttonSelectors);
 
         let indexActive = 0
+
+        textImage.innerHTML = `
+        <label class="label">Color : </label>
+        <h2>${imageColors[indexActive].text}</h2>`;
         colorButtons[indexActive].classList.add('active');
         buttons[indexActive].classList.add('active');
-        setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors);
-        setActiveButton(buttons, colorButtons, srcImage, textImage, imageColors);
+        setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors, indexActive);
+        setActiveButton(buttons, colorButtons, srcImage, textImage, imageColors, indexActive);
 
 
     });

@@ -130,7 +130,7 @@ imageSlider('.section-6 .container', '.section-6-item', '.prev6', '.next6', 6, 1
 
 imageSlider('.section-9 .container', '.section-9-item', '.prev9', '.next9', 6, 1);
 
-imageSlider('#section-10 .container', '.section-10-item', '.prev10', '.next10', 4, 1);
+imageSlider('#section-10 .container', '.section-10-item', '.prev10', '.next10', 4,1);
 
 imageSlider('#section-11 .container', '.section-11-item', '.prev11', '.next11', 6, 1);
 
@@ -156,13 +156,22 @@ const imageColors = [
 ];
 
 function setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors, indexActive) {
+
+    let currentWindowWidth = window.innerWidth;
     colorButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             colorButtons.forEach((btn, i) => {
                 if (i === index) {
-                    btn.classList.add('active');
-                    buttons[i].classList.add('active');
 
+                    if (currentWindowWidth > 480) {
+                        btn.classList.add('active');
+                        buttons[i].classList.add('active');
+                        buttons[index].scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+                    } else {
+                        btn.classList.add('active');
+                        buttons[i].classList.remove('active');
+                        buttons[index].scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+                    }
                 } else {
                     btn.classList.remove('active');
                     buttons[i].classList.remove('active');
@@ -171,13 +180,13 @@ function setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors
             document.querySelector('.price').innerText = imageColors[index].price;
 
             srcImage.src = imageColors[index].path;
-            // textImage.innerText = imageColors[index].text;
             textImage.innerHTML = `
             <label>Color :</label>
             <h2>${imageColors[index].text}</h2>
             ` || ` <label>Color :</label>
             <h2>${imageColors[indexActive].text}</h2>`
         });
+
     });
 }
 
@@ -185,12 +194,14 @@ function setImage(imageColors, elementSelectors, buttonSelectors) {
     if (!Array.isArray(elementSelectors)) {
         elementSelectors = [elementSelectors];
     }
+
+
     elementSelectors.forEach(selector => {
         const buttons = document.querySelectorAll(selector);
         const srcImage = document.getElementById('src-image');
         const textImage = document.getElementsByClassName('textImage')[0];
         const optionsColor = document.querySelector('.optionsColor')
-
+        let currentWindowWidth = window.innerWidth;
         optionsColor.innerHTML = imageColors.map((item) => {
             return `<div class="color" style="background-color: ${item.color} ;width: 25px; height: 25px"></div>`;
         }).join('');
@@ -203,7 +214,15 @@ function setImage(imageColors, elementSelectors, buttonSelectors) {
         <label class="label">Color : </label>
         <h2>${imageColors[indexActive].text}</h2>`;
         colorButtons[indexActive].classList.add('active');
-        buttons[indexActive].classList.add('active');
+
+
+        if (currentWindowWidth > 480) {
+            buttons[indexActive].classList.add('active');
+        } else {
+            buttons[indexActive].classList.remove('active');
+        }
+
+
         setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors, indexActive);
         setActiveButton(buttons, colorButtons, srcImage, textImage, imageColors, indexActive);
 

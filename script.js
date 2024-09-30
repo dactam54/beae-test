@@ -65,172 +65,136 @@ setInterval(updatePath, delayTime);
 
 
 
-
-
-
 //Slide + Touch Mobile
+function imageSlider(containerSelector, imagesSelector, prevSelector, nextSelector, itemsPerView, scrollStep,) {
+    console.log(containerSelector, imagesSelector, prevSelector, nextSelector)
+    const container = document.querySelector(containerSelector);
+    console.log('container', container)
+    const images = container.querySelectorAll(imagesSelector);
 
-const imagesPath = [
-    './assets/section-3--1.jpg',
-    './assets/section-3-0.jpg',
-    './assets/section-3-1.jpg',
-    './assets/section-3-2.jpg',
-    './assets/section-3-3.jpg',
-    './assets/section-3-4.jpg',
-    './assets/section-3-5.jpg',
-    './assets/section-3-6.jpg',
-]
+    let currentIndex = 0;
 
-const textImages = [
-    {
-        name: "Dining Table",
-        price: 1699.99,
-        stocks: '5 In stock, hurry up',
-        isStock: true
-    },
-    {
-        name: "Oval Dining Table",
-        price: 899.99,
-        currentPrice: 1499.99,
-        stocks: '15 In stock',
-        isStock: false
-
-    }
-    , {
-        name: "Leather Dining Chair",
-        price: 299.99,
-        currentPrice: 399.99,
-        stocks: '10 In stock',
-        isStock: true
-    },
-    {
-        name: "Dining Table",
-        price: 1699.99,
-        stocks: '5 In stock, hurry up',
-        isStock: true
-    },
-    {
-        name: "Oval Dining Table",
-        price: 899.99,
-        currentPrice: 1499.99,
-        stocks: '15 In stock',
-        isStock: true
-
-    }
-    , {
-        name: "Leather Dining Chair",
-        price: 299.99,
-        currentPrice: 399.99,
-        stocks: '10 In stock'
-    },
-    {
-        name: "Dining Table",
-        price: 1699.99,
-        stocks: '5 In stock, hurry up',
-        isStock: false
-    },
-    {
-        name: "Oval Dining Table",
-        price: 899.99,
-        currentPrice: 1499.99,
-        stocks: '15 In stock',
-        isStock: false
+    if (images.length === 0 || itemsPerView >= images.length) {
+        return;
     }
 
-]
+    function showImages(startIndex) {
+        images.forEach((item, index) => {
+            item.style.display = (index >= startIndex && index < startIndex + itemsPerView) ? 'block' : 'none';
+        });
+    }
+    const nextButton = document.querySelector(nextSelector);
+    const prevButton = document.querySelector(prevSelector);
+
+    function updateButtonStates() {
+        if (currentIndex === 0) {
+            prevButton.setAttribute('disabled', 'true');
+        } else {
+            prevButton.removeAttribute('disabled');
+        }
+
+        if (currentIndex >= images.length - itemsPerView) {
+            nextButton.setAttribute('disabled', 'true');
+        } else {
+            nextButton.removeAttribute('disabled');
+        }
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex + scrollStep < images.length - itemsPerView + 1) {
+            currentIndex += scrollStep;
+        } else {
+            currentIndex = images.length - itemsPerView;
+        }
+        showImages(currentIndex);
+        updateButtonStates();
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex - scrollStep >= 0) {
+            currentIndex -= scrollStep;
+        } else {
+            currentIndex = 0;
+        }
+        showImages(currentIndex);
+        updateButtonStates();
+    });
+
+    updateButtonStates();
+    showImages(currentIndex);
+}
+imageSlider('#section-3 .container', '.section-3-item', '.prev', '.next', 6, 1);
+
+imageSlider('.section-6 .container', '.section-6-item', '.prev6', '.next6', 6, 1);
 
 
-const container = document.querySelector('#section-3 .container');
-const images = container.querySelectorAll('.section-3-item');
-let currentIndex = 0;
-const itemsPerView = 6;
-const scrollStep = 2;
+imageSlider('.section-9 .container', '.section-9-item', '.prev9', '.next9', 6, 1);
 
-function showImages(startIndex) {
-    images.forEach((item, index) => {
-        item.style.display = (index >= startIndex && index < startIndex + itemsPerView) ? 'block' : 'none';
+imageSlider('#section-10 .container', '.section-10-item', '.prev10', '.next10', 4, 1);
+
+imageSlider('#section-11 .container', '.section-11-item', '.prev11', '.next11', 6, 1);
+
+
+
+
+
+const imageColors = [
+    {
+        text: 'Natural',
+        path: './assets/v1.jpg',
+        price: '$299.99',
+        color: '#f0cb90'
+    },
+    {
+        text: 'Black',
+        path: './assets/v2.jpg',
+        price: '$279.99',
+        color: '#000000'
+    }
+];
+
+function setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors) {
+    colorButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            colorButtons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                    buttons[i].classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                    buttons[i].classList.remove('active');
+                }
+            });
+
+            srcImage.src = imageColors[index].path;
+            textImage.innerText = imageColors[index].text;
+        });
     });
 }
 
-const nextButton = document.querySelector('.next');
-const prevButton = document.querySelector('.prev');
-
-function updateButtonStates() {
-    if (currentIndex === 0) {
-        prevButton.setAttribute('disabled', 'true');
-    } else {
-        prevButton.removeAttribute('disabled');
+function setImage(imageColors, elementSelectors, buttonSelectors) {
+    if (!Array.isArray(elementSelectors)) {
+        elementSelectors = [elementSelectors];
     }
+    elementSelectors.forEach(selector => {
+        const buttons = document.querySelectorAll(selector);
+        const srcImage = document.getElementById('src-image');
+        const textImage = document.getElementsByClassName('textImage')[0];
+        const optionsColor = document.querySelector('.optionsColor');
+        optionsColor.innerHTML = imageColors.map((item) => {
+            return `<div class="color" style="background-color: ${item.color} ;width: 25px; height: 25px"></div>`;
+        }).join('');
 
-    // Disable next button if we are at the last image
-    if (currentIndex >= images.length - itemsPerView) {
-        nextButton.setAttribute('disabled', 'true');
-    } else {
-        nextButton.removeAttribute('disabled');
-    }
+        const colorButtons = document.querySelectorAll(buttonSelectors);
+
+        let indexActive = 0
+        colorButtons[indexActive].classList.add('active');
+        buttons[indexActive].classList.add('active');
+        setActiveButton(colorButtons, buttons, srcImage, textImage, imageColors);
+        setActiveButton(buttons, colorButtons, srcImage, textImage, imageColors);
+
+
+    });
 }
 
-document.querySelector('.next').addEventListener('click', () => {
-    if (currentIndex + scrollStep < images.length - itemsPerView + 1) {
-        currentIndex += scrollStep;
-    } else {
-        currentIndex = images.length - itemsPerView;
-    }
-    showImages(currentIndex);
-    updateButtonStates();
-});
-
-document.querySelector('.prev').addEventListener('click', () => {
-    if (currentIndex - scrollStep >= 0) {
-        currentIndex -= scrollStep;
-    } else {
-        currentIndex = 0;
-    }
-    showImages(currentIndex);
-    updateButtonStates();
-});
-
-
-updateButtonStates();
-showImages(currentIndex);
-
-
-
-
-
-// let isDragging = false;
-// let startPosition = 0;
-// let scrollLeft = 0;
-
-// container.addEventListener('mousedown', (e) => {
-//     isDragging = true;
-//     startPosition = e.pageX - container.offsetLeft;
-//     scrollLeft = container.scrollLeft;
-//     container.classList.add('grabbing');
-// });
-
-// container.addEventListener('mouseleave', () => {
-//     isDragging = false;
-//     container.classList.remove('grabbing');
-// });
-
-// container.addEventListener('mouseup', () => {
-//     isDragging = false;
-//     container.classList.remove('grabbing');
-// });
-
-// container.addEventListener('mousemove', (e) => {
-//     if (!isDragging) return;
-//     e.preventDefault();
-//     const x = e.pageX - container.offsetLeft;
-//     const walk = (x - startPosition) * 1.5;
-//     container.scrollLeft = scrollLeft - walk;
-// });
-
-
-
-
-
-
-
-
+setImage(imageColors, ['.img-button'], '.optionsColor .color');

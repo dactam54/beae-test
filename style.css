@@ -823,7 +823,7 @@ button:disabled {
   position: absolute;
   width: 38px;
   height: 38px;
-  top: 50%;
+  top: 40%;
   cursor: pointer;
   z-index: 99;
   border-radius: 50%;
@@ -1405,12 +1405,12 @@ button:disabled {
 
 .section-9 .section-9-main .section-9-images .prev9,
 .next9 {
-  /* opacity: 0; */
+  opacity: 0;
   display: block;
   position: absolute;
   width: 38px;
   height: 38px;
-  top: 50%;
+  top: 40%;
   cursor: pointer;
   z-index: 99;
   border-radius: 50%;

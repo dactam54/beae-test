@@ -86,6 +86,7 @@ img {
   font-weight: 400;
   font-style: normal;
   display: inline-block;
+  color: #ffffff;
 }
 
 .overlay .btn-section-1 {
@@ -182,7 +183,6 @@ img {
   top: 0;
   left: 0;
   padding: 20px;
-
   display: block;
   z-index: 3;
   color: #fff;
@@ -204,6 +204,7 @@ img {
   font-family: "Beae-font-hjab", sans-serif;
   margin-top: 20px;
   width: 85%;
+  color: #fff;
 }
 #section-2 .container .section-2-item .section-2-item-overlay img {
   width: 100%;
@@ -1152,6 +1153,7 @@ button:disabled {
   font-size: 33px;
   font-weight: 400;
   margin-bottom: 10px;
+  color: #3a2a2f;
 }
 
 #section-8 .container p {
@@ -1159,15 +1161,10 @@ button:disabled {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
+  color: #3a2a2f;
 }
 #section-8 .container p::first-letter {
   margin-left: 15px;
-}
-
-#section-8 .container h3,
-p,
-div a {
-  color: #3a2a2f;
 }
 
 #section-8 .container div {
@@ -1180,6 +1177,7 @@ div a {
 }
 #section-8 .container div a {
   color: #fdfcfb;
+
   text-decoration: none;
   font-size: 14px;
   line-height: 24px;

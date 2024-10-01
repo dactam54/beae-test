@@ -476,7 +476,7 @@ button:disabled {
   overflow-x: scroll;
   white-space: nowrap;
   position: relative;
- 
+
   /* gap: 10px; */
 }
 #section-4 .section-4-title {
@@ -534,11 +534,7 @@ button:disabled {
 }
 #section-4 .container .section-4-item:hover img {
   transform: scale(1.1);
-
-
 }
-
-
 
 #section-4 .container .section-4-item .hover {
   border: 1px solid black;
@@ -704,7 +700,6 @@ button:disabled {
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
   padding: 20px;
-  
 }
 
 .section-6 .section-6-main .section-6-images .container .section-6-item img {
@@ -1619,7 +1614,7 @@ button:disabled {
 
 #section-10 .prev10,
 .next10 {
-  /* opacity: 0; */
+  opacity: 0;
   display: block;
   position: absolute;
   width: 38px;
@@ -1903,7 +1898,6 @@ button:disabled {
   box-shadow: 0 4px 6px #00000014;
 }
 
-
 #section-12 {
   display: block;
   position: relative;
@@ -1927,7 +1921,6 @@ button:disabled {
   display: flex;
   width: 25%;
   flex-direction: row;
-  
 }
 
 #section-12 .container .container-item .item-img svg {
@@ -1982,6 +1975,7 @@ button:disabled {
 
 @media (max-width: 480px) {
   /* Section-1 */
+
   .overlay {
     width: 90%;
   }
@@ -2206,7 +2200,7 @@ button:disabled {
   }
 
   #section-11 .container .section-11-item {
-    flex: 0 0 80%;
+    width: 80%;
   }
   #section-11 .container .section-11-item:first-child {
     margin-left: 10px;
@@ -2221,6 +2215,6 @@ button:disabled {
   }
   #section-12 .container .container-item {
     width: 80%;
-    flex : 0  0 80%;
+    flex: 0 0 80%;
   }
-
+}

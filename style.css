@@ -17,6 +17,7 @@
   --width-container: 75%;
   --width-container-mobile: 100%;
   --margin-mobile: 10px;
+  --font-minus: ;
 }
 
 html {
@@ -66,27 +67,30 @@ img {
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 32%;
+  /* width: 32%; */
   height: 40%;
   color: #ffffff;
   z-index: 2;
 }
 
 .overlay h2 {
-  margin-bottom: 10px;
-  text-transform: none;
-  font-weight: 400;
+  font-size: 48px;
   font-style: normal;
+  line-height: 55px;
+  width: fit-content;
+  text-align: center;
+  word-wrap: nowrap;
 }
 
 .overlay p {
-  font-size: 18px;
+  font-size: 16px;
+  width: 40%;
   text-decoration: none;
-  line-height: 28px;
+  line-height: 24px;
   font-weight: 400;
   font-style: normal;
-  display: inline-block;
   color: #ffffff;
+  text-align: center;
 }
 
 .overlay .btn-section-1 {
@@ -156,7 +160,6 @@ img {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  /* width: 80%; */
   width: var(--width-container);
   margin: 0 auto;
   padding-top: 50px;
@@ -513,7 +516,7 @@ button:disabled {
   line-height: 24px;
   cursor: pointer;
   padding: 5px;
-  font-weight: 700;
+  font-weight: normal;
   font-style: normal;
   color: var(--color-background);
 }
@@ -637,7 +640,7 @@ button:disabled {
 .section-6 .section-6-main .section-6-text .container-text {
   color: #fff;
   height: 100%;
-  width: 85%;
+  width: 90%;
   margin: 30px auto;
 }
 
@@ -646,6 +649,7 @@ button:disabled {
   font-size: 23px;
   line-height: 30px;
   font-weight: 400;
+  word-wrap: nowrap;
 }
 .section-6 .section-6-main .section-6-text .container-text p {
   color: #ffffff;
@@ -1166,6 +1170,7 @@ button:disabled {
   font-weight: 400;
   margin-bottom: 10px;
   color: #3a2a2f;
+  text-align: center;
 }
 
 #section-8 .container p {
@@ -1174,6 +1179,8 @@ button:disabled {
   font-weight: 400;
   margin-bottom: 10px;
   color: #3a2a2f;
+  text-align: center;
+  transform: none;
 }
 #section-8 .container p::first-letter {
   margin-left: 15px;
@@ -1224,7 +1231,7 @@ button:disabled {
 .section-9 .section-9-main .section-9-text .container-text {
   color: #fff;
   height: 100%;
-  width: 85%;
+  width: 90%;
   margin: 30px auto;
 }
 

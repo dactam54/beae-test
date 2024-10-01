@@ -67,9 +67,13 @@ setInterval(updatePath, delayTime);
 
 //Slide + Touch Mobile
 function imageSlider(containerSelector, imagesSelector, prevSelector, nextSelector, itemsPerView, scrollStep,) {
+
+    const currentWindowWidth = window.innerWidth;
+    if (currentWindowWidth < 480) {
+        return;
+    }
     console.log(containerSelector, imagesSelector, prevSelector, nextSelector)
     const container = document.querySelector(containerSelector);
-    console.log('container', container)
     const images = container.querySelectorAll(imagesSelector);
 
     let currentIndex = 0;
@@ -124,19 +128,13 @@ function imageSlider(containerSelector, imagesSelector, prevSelector, nextSelect
     showImages(currentIndex);
 }
 imageSlider('#section-3 .container', '.section-3-item', '.prev', '.next', 6, 1);
-
 imageSlider('.section-6 .container', '.section-6-item', '.prev6', '.next6', 6, 1);
-
-
 imageSlider('.section-9 .container', '.section-9-item', '.prev9', '.next9', 6, 1);
-
-imageSlider('#section-10 .container', '.section-10-item', '.prev10', '.next10', 4,1);
 
 imageSlider('#section-11 .container', '.section-11-item', '.prev11', '.next11', 6, 1);
 
 
-
-
+imageSlider('#section-10 .container', '.section-10-item', '.prev10', '.next10', 4, 1);
 
 const imageColors = [
     {

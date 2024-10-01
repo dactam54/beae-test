@@ -14,7 +14,7 @@
   --color-stock-1: #c00000;
   --color-stock-2: #3c9342;
   --color-text: #3a2a2f;
-  --width-container: 80%;
+  --width-container: 75%;
   --width-container-mobile: 100%;
   --margin-mobile: 10px;
 }
@@ -293,6 +293,7 @@ img {
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
   padding: 20px;
+  cursor: pointer;
 }
 
 #section-3 .container .section-3-item img {
@@ -396,12 +397,12 @@ img {
 }
 
 #section-3 .prev {
-  left: 10%;
+  left: 12.5%;
   margin-left: 10px;
 }
 
 #section-3 .next {
-  right: 10%;
+  right: 12.5%;
   margin-right: 10px;
 }
 
@@ -475,7 +476,8 @@ button:disabled {
   overflow-x: scroll;
   white-space: nowrap;
   position: relative;
-  gap: 10px;
+ 
+  /* gap: 10px; */
 }
 #section-4 .section-4-title {
   display: flex;
@@ -495,11 +497,13 @@ button:disabled {
 }
 
 #section-4 .container .section-4-item {
-  /* height: 250px; */
-  height: fit-content;
   flex: 0 0 16.66%;
   transition: transform 0.5s ease;
   overflow: hidden;
+  padding-right: 10px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 
 #section-4 .container .section-4-item .item-detail {
@@ -516,14 +520,25 @@ button:disabled {
 
 #section-4 .container .section-4-item img {
   width: 100%;
-
   object-fit: cover;
   display: flex;
   position: relative;
   aspect-ratio: 1/1;
-  transition: transform 0.3s ease;
-  transform-origin: center;
+  transition: 0.3s;
 }
+
+#section-4 .container .section-4-item div:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#section-4 .container .section-4-item:hover img {
+  transform: scale(1.1);
+
+
+}
+
+
 
 #section-4 .container .section-4-item .hover {
   border: 1px solid black;
@@ -579,6 +594,7 @@ button:disabled {
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: center;
+  cursor: pointer;
 }
 
 #section-5 .container .section-5-item img {
@@ -688,6 +704,7 @@ button:disabled {
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
   padding: 20px;
+  
 }
 
 .section-6 .section-6-main .section-6-images .container .section-6-item img {
@@ -823,7 +840,7 @@ button:disabled {
   position: absolute;
   width: 38px;
   height: 38px;
-  top: 40%;
+  top: 35%;
   cursor: pointer;
   z-index: 99;
   border-radius: 50%;
@@ -1197,7 +1214,7 @@ button:disabled {
 .section-9 .section-9-main {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: var(--width-container);
   margin: 0 auto;
   position: relative;
 }
@@ -1239,8 +1256,6 @@ button:disabled {
   width: fit-content;
   padding: 12px 35px;
   font-size: 1rem;
-
-  /* color: var(--button-color); */
   background-color: var(--button-color);
   border: none;
   cursor: pointer;
@@ -1275,6 +1290,7 @@ button:disabled {
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
   padding: 20px;
+  cursor: pointer;
 }
 
 .section-9 .section-9-main .section-9-images .container .section-9-item img {
@@ -1410,7 +1426,7 @@ button:disabled {
   position: absolute;
   width: 38px;
   height: 38px;
-  top: 40%;
+  top: 35%;
   cursor: pointer;
   z-index: 99;
   border-radius: 50%;
@@ -1521,7 +1537,6 @@ button:disabled {
   white-space: nowrap;
   position: relative;
   gap: 20px;
-  border: 1px solid red;
 }
 #section-10 .section-10-title {
   display: flex;
@@ -1547,7 +1562,8 @@ button:disabled {
 #section-10 .container .section-10-item {
   transition: transform 0.5s ease;
   width: 25%;
-  border: 1px solid red;
+  flex: 0 0 25%;
+  cursor: pointer;
 }
 
 #section-10 .container .section-10-item img {
@@ -1621,7 +1637,7 @@ button:disabled {
 }
 
 #section-10 .prev10 {
-  left: 10%;
+  left: 12.5%;
   margin-left: 10px;
 }
 
@@ -1631,7 +1647,7 @@ button:disabled {
 }
 
 #section-10 .next10 {
-  right: 10%;
+  right: 12.5%;
   margin-right: 10px;
 }
 
@@ -1677,8 +1693,7 @@ button:disabled {
 #section-11 .section-11-title {
   display: flex;
   width: var(--width-container);
-  /* margin: 50px auto; */
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -1712,6 +1727,7 @@ button:disabled {
   border: 1px solid #e6dde0;
   transition: transform 0.5s ease;
   padding: 20px;
+  cursor: pointer;
 }
 
 #section-11 .container .section-11-item img {
@@ -1825,12 +1841,12 @@ button:disabled {
 }
 
 #section-11 .prev11 {
-  left: 10%;
+  left: 12.5%;
   margin-left: 10px;
 }
 
 #section-11 .next11 {
-  right: 10%;
+  right: 12.5%;
   margin-right: 10px;
 }
 
@@ -1887,22 +1903,23 @@ button:disabled {
   box-shadow: 0 4px 6px #00000014;
 }
 
-/* Section-12 */
+
 #section-12 {
   display: block;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: color-mix(in srgb, #f3eeea 100%, transparent);
   padding-top: 30px;
   padding-bottom: 40px;
+  background: color-mix(in srgb, #f3eeea 100%, transparent);
 }
+
 #section-12 .container {
   display: flex;
   width: var(--width-container);
-  margin: 20px auto;
-  /* overflow-x: scroll;
-  white-space: nowrap; */
+  margin: 0 auto;
+  overflow-x: scroll;
+  white-space: nowrap;
   position: relative;
 }
 
@@ -1910,6 +1927,7 @@ button:disabled {
   display: flex;
   width: 25%;
   flex-direction: row;
+  
 }
 
 #section-12 .container .container-item .item-img svg {
@@ -1921,6 +1939,11 @@ button:disabled {
 
 #section-12 .container .container-item .item-text {
   width: 75%;
+  text-wrap: wrap;
+}
+
+#section-12 .container::-webkit-scrollbar {
+  display: none;
 }
 #section-12 .container .container-item .item-text h3 {
   color: var(--color-background);
@@ -1936,6 +1959,7 @@ button:disabled {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  margin-top: 10px;
 }
 
 /* Media Queries */
@@ -2040,6 +2064,7 @@ button:disabled {
 
   #section-4 .container .section-4-item {
     flex: 0 0 80%;
+    margin-right: 10px;
   }
 
   #section-4 .container .section-4-item img {
@@ -2145,15 +2170,20 @@ button:disabled {
     align-items: center;
   }
 
-  /* #section-10 .container {
+  #section-10 .container {
     width: 100%;
     margin-left: 10px;
+  }
+  #section-10 .container .section-10-item {
+    flex: 0 0 80%;
+    height: fit-content;
+    /* margin-right: 10px; */
   }
 
   #section-10 .container .section-10-item img,
   .item-detail {
     width: 100%;
-  } */
+  }
 
   #section-10 .prev10,
   .next10 {
@@ -2174,7 +2204,23 @@ button:disabled {
   #section-11 .container {
     width: 100%;
   }
+
+  #section-11 .container .section-11-item {
+    flex: 0 0 80%;
+  }
   #section-11 .container .section-11-item:first-child {
     margin-left: 10px;
   }
-}
+
+  /* Section-12 */
+  #section-12 .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 10px;
+  }
+  #section-12 .container .container-item {
+    width: 80%;
+    flex : 0  0 80%;
+  }
+
